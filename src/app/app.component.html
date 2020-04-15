@@ -15,6 +15,30 @@
     <input type="email" class="form-control col-6" id="input1" aria-describedby="emailHelp" placeholder="Enter Datchick id">
     <input type="email" class="form-control col-6" id="input2" aria-describedby="emailHelp" placeholder="Enter Datchick Name">
     <div type="button" class="btn btn-primary" (click)="addD($event)">включить</div>
-    <div id="field" class="row" style="height:500px" (click)="removeD($event)">{{Build()}}</div>
+
+    <div  class="container" (click)="removeD($event)" > 
+      <div class="row" id="row">
+        <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let i of arr">
+
+          <div *ngIf="i.Block === true">
+          <div class="card-body border rounded-25" *ngIf="i.Status === true" style="background: green;">
+            <h5 class="card-title">{{i.Name}}</h5>
+            <h6 class="card-subtitle">status: {{i.Status}}</h6>
+            <p class="card-text">id: {{i.ID}}</p>
+            <div id = {{i.ID}} type="button" class="btn btn-primary"> Delete</div>
+          </div>
+
+          <div class="card-body border rounded-25" *ngIf="i.Status === false" style="background: red;">
+            <h5 class="card-title">{{i.Name}}</h5>
+            <h6 class="card-subtitle">status: {{i.Status}}</h6>
+            <p class="card-text">id: {{i.ID}}</p>
+            <div type="button" class="btn btn-primary" id = {{i.ID}}> Delete</div>
+          </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
