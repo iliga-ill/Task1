@@ -1,0 +1,20 @@
+<!--<div class="container"> 
+  <div class="row">
+    <div class="col-2 border rounded-25">
+      <a ID="ID">ID:</a><br>
+      <a ID="Name">Name:</a><br>
+      <a ID="Status">Status:</a><br>
+      <div type="button" class="btn btn-primary">выключить</div>
+    </div>
+  </div> 
+</div>
+(click)="removeD($event)"
+-->
+<div class="container">
+  <div class="row">
+    <input type="email" class="form-control col-6" id="input1" aria-describedby="emailHelp" placeholder="Enter Datchick id">
+    <input type="email" class="form-control col-6" id="input2" aria-describedby="emailHelp" placeholder="Enter Datchick Name">
+    <div type="button" class="btn btn-primary" (click)="addD($event)">включить</div>
+    <div id="field" class="row" style="height:500px" (click)="removeD($event)">{{Build()}}</div>
+  </div>
+</div>
