@@ -1,8 +1,8 @@
 import{
-
 } from "@angular/core";
 import { Component } from '@angular/core';
-import { range } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+//import { range } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,10 @@ import { range } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent{
   title = 'Task1';
+  Id;
+  Name;
 
   arr = [
     {"ID":0,"Name":1,"Block":true},
@@ -29,37 +31,32 @@ export class AppComponent {
   constructor(){
     if (this.arr[0]["Status"]==null){
       for (let i of this.arr) {
-        i["Status"]=Math.round(Math.random())==1;
+        let St=Math.round(Math.random())==1
+        i["Status"]=St;
       }
     }
   }
 
-  addD(event){
-    let Id = parent.document.getElementById("input1");
-    let Name = parent.document.getElementById("input2");
-    let ID=false;
+  addD(){
+    let ID:any=false;
     for (let i=0;i<this.arr.length;i++) {
-      console.log(this.arr[i].ID+"=="+Id.value);
-      if (this.arr[i].ID==Id.value){
+      console.log(this.arr[i].ID+"=="+this.Id);
+      if (this.arr[i].ID==this.Id){
         ID=i;
         break;
       }
     }
-    console.log(ID);
+
     if (ID!=false){
-      this.arr[ID].Name=Name.value;
+      this.arr[ID].Name=this.Name;
       this.arr[ID].Block=true;
-      console.log(this.arr[ID].Name);
-      console.log(this.arr[ID].Block);
     }
     else{
-      this.arr.push({"ID":Id.value,"Name":Name.value,"Block":true,"Status":(Math.round(Math.random())==1)});
+      this.arr.push({"ID":this.Id,"Name":this.Name,"Block":true,"Status":(Math.round(Math.random())==1)});
     }
   }
 
   removeD(event){
-    console.log(event);
-    console.log(event.toElement);
     for (let i=0;i<this.arr.length;i++) {
       //console.log(this.arr[i].ID+"=="+event.target.id);
       if (this.arr[i].ID==event.target.id){
@@ -70,9 +67,7 @@ export class AppComponent {
           this.arr[j]=this.arr[j+1];
           J=j;
         }
-        console.log(this.arr[J].ID);
         this.arr[this.arr.length-1]=bufer1
-        console.log(this.arr);
         break;
       }
     }

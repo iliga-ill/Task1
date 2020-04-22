@@ -12,9 +12,19 @@
 -->
 <div class="container">
   <div class="row">
-    <input type="email" class="form-control col-6" id="input1" aria-describedby="emailHelp" placeholder="Enter Datchick id">
-    <input type="email" class="form-control col-6" id="input2" aria-describedby="emailHelp" placeholder="Enter Datchick Name">
-    <div type="button" class="btn btn-primary" (click)="addD($event)">включить</div>
+    <input
+      type="text"
+      class="form-control col-6"
+      placeholder="id"
+      [(ngModel)]="Id"
+    />
+    <input
+      type="text"
+      class="form-control col-6"
+      placeholder="name"
+      [(ngModel)]="Name"
+    />
+    <div type="button" class="btn btn-primary" (click)="addD()">включить</div>
 
     <div  class="container" (click)="removeD($event)" > 
       <div class="row" id="row">
@@ -42,3 +52,4 @@
   </div>
 
 </div>
+
